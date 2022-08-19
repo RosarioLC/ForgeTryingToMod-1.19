@@ -1,5 +1,7 @@
 package com.kollee.tutorialmod;
 
+import com.kollee.tutorialmod.item.ModBlocks;
+import com.kollee.tutorialmod.item.ModItem;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +24,9 @@ public class TutorialMod
     public TutorialMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItem.register(modEventBus);
+        ModBlocks.register(modEventBus);
         
         modEventBus.addListener(this::commonSetup);
 
